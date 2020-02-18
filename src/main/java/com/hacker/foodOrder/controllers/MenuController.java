@@ -16,8 +16,8 @@ public class MenuController {
     @Autowired
     public MenuSerivce menuSerivce;
 
-//    @GetMapping("/greet")
-//    public String greet(){return "Welcome!";}
+    @GetMapping("/greet")
+    public String greet(){return "Welcome!";}
 
     @PostMapping("/new")
     public Menu createNewMenu(@Valid @RequestBody Menu menu){
@@ -25,5 +25,5 @@ public class MenuController {
     }
 
     @GetMapping("")
-    public Iterable<Menu> getAllMenu(@PageableDefault Pageable pageable){return menuSerivce.findAllMenuItems(pageable);}
+    public Iterable<Menu> getAllMenu(@PageableDefault(value=2) Pageable pageable){return menuSerivce.findAllMenuItems(pageable);}
 }
